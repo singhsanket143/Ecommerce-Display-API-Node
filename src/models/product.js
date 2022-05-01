@@ -19,6 +19,11 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
         required: true
+    },
+    id: {
+        type: Number,
+        required: true,
+        unique: true
     }
 }, {timestamps: true});
 
