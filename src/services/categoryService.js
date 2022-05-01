@@ -3,7 +3,8 @@ const Category = require('../models/category');
 const createCategory = async (data) => {
     try {
         const newCategory = {
-            name: data.name
+            name: data.name,
+            id: data.id
         }
         const category = await new Category(newCategory).save();
         return category;
