@@ -1,6 +1,5 @@
 const Product = require('../models/product');
 
-
 const createProduct = async (data) => {
     try {
         const newProduct = {
@@ -58,12 +57,8 @@ const getProductsByCategory = async (data) => {
     try {
         let product;
         if(data.sort) {
-            if(data.price) {
-                let criteria = (data.sort == 'inc') ? '' : '-';
-                product = Product.find({category: data.id}).sort(criteria + 'price');
-            } else {
-                product = Product.find({category: data.id});
-            }
+            let criteria = (data.sort == 'inc') ? '' : '-';
+            product = Product.find({category: data.id}).sort(criteria + 'price');
         } else if (data.filter) {
             if(data.lessThanPrice && data.moreThanPrice) {
                 product = Product.find({category: data.id, $lt: data.lessThanPrice, $gt: data.moreThanPrice});

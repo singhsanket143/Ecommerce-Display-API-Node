@@ -85,10 +85,28 @@ const getAllProducts = async (req, res) => {
     } 
 }
 
+const getProductsByCategory = async (req, res) => {
+    try {
+        const product = await ProductService.getProductsByCategory(req.query);
+        res.status(200).json({
+            message: 'Successfully fetched all the products',
+            success: true,
+            data: product
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            succcess: false,
+            message: 'Something went wrong'
+        });
+    } 
+}
+
 module.exports = {
     createProduct,
     removeProduct,
     updateProduct,
     getProduct,
-    getAllProducts
+    getAllProducts,
+    getProductsByCategory
 }
