@@ -20,11 +20,6 @@ const productSchema = new mongoose.Schema({
         ref: 'Category',
         required: true
     },
-    id: {
-        type: Number,
-        required: true,
-        unique: true
-    }
 }, {timestamps: true});
 
 const productModel = new mongoose.model('Product', productSchema);

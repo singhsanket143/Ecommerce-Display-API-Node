@@ -15,7 +15,8 @@ const createCategory = async (data) => {
 
 const deleteCategory = async (id) => {
     try {
-        const cateogry = await Category.findByOneAndDelete({id: id});
+        const cateogry = await Category.findOneAndDelete({id: id});
+        console.log(category)
         return cateogry;
     } catch (err) {
         console.log(err);

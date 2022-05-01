@@ -6,11 +6,11 @@ const createProduct = async (data) => {
         const newProduct = {
             name: data.name,
             price: data.price,
-            category: data.cateogry,
+            category: data.category,
             img: data.img,
-            id: data.id,
             description: data.description
         }
+        console.log(data);
         const product = await new Product(newProduct).save();
         return product;
     } catch (err) {
@@ -20,7 +20,7 @@ const createProduct = async (data) => {
 
 const deleteProduct = async (id) => {
     try {
-        const product = await Product.findByOneAndDelete({id: id});
+        const product = await Product.findOneAndDelete({id: id});
         return product;
     } catch (err) {
         console.log(err);
